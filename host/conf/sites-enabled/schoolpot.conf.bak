@@ -1,0 +1,17 @@
+server {
+    listen   80;
+    server_name  docker.schoolpot.net;
+    root  /opt/htdocs/schoolpot;
+    index index.html index.htm;
+    access_log off;
+
+    location ~ \.php {
+        include fastcgi_params;
+        fastcgi_pass   php:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  /opt/htdocs/docker.schoolpot.net/public/;
+        fastcgi_param  APPLICATION_NAME evaengine;
+    }
+}
+
+

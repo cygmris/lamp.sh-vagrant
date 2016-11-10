@@ -1,7 +1,7 @@
 FROM nginx:1.9
 
 ADD  nginx.conf      /etc/nginx/nginx.conf
-ADD  sites-enabled/*.conf    /etc/nginx/conf.d/
+#ADD  sites-enabled/*.conf    /etc/nginx/sites-enabled/
 RUN  mkdir /opt/htdocs && mkdir /opt/log && mkdir /opt/log/nginx
 RUN  chown -R www-data.www-data /opt/htdocs /opt/log
 

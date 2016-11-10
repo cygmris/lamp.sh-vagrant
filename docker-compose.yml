@@ -6,7 +6,9 @@ nginx:
       - "php"
     volumes:
       - /opt:/opt
-
+      - /vagrant/sites:/vagrant/sites
+      - /vagrant/conf/frontend-reverse-proxy-nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /vagrant/conf/sites-enabled:/etc/nginx/sites-enabled
 php:
     build: ./php
     ports:
@@ -15,6 +17,7 @@ php:
       - "mysql"
     volumes:
       - /opt:/opt
+      - /vagrant:/vagrant
 
 mysql:
     build: ./mysql
